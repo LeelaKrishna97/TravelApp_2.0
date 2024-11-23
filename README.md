@@ -95,3 +95,6 @@ TravelApp’s user flow is designed to provide a seamless experience:
    - Tickets purchased or booked are displayed here with details and a QR code for verification.  
 
 ---
+
+## Supported Devices  
+-  TravelApp is optimized for the Small, Medium, Large device categories.
