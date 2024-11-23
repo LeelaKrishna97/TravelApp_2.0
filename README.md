@@ -2,6 +2,13 @@
 
 **Your Smart Travel Companion**  
 
+## Team Members    
+1. Pesaru,Yamini Reddy.  
+2. Aenugu,Chathurya Reddy.
+3. Daka,Sai Sahithi.
+4. Mamidiga,Akanksha.
+5. Andhe,Leela Krishna. 
+
 ---
 
 ## Table of Contents  
@@ -10,9 +17,8 @@
 - [Purpose](#purpose)  
 - [Installation](#installation)  
 - [Usage](#usage)  
-- [Technologies Used](#technologies-used)  
-
-
+- [Technologies Used](#technologies-used)
+- [Sequence Information](#sequence-information)
 ---
 
 ## Introduction  
@@ -47,7 +53,45 @@ TravelApp addresses the common challenges faced by travelers, such as finding re
 
 ## Installation  
 
-1. **Clone the Repository**  
-   Clone this project to your local machine:  
-   ```bash  
-   git clone https://github.com/yourusername/TravelApp.git  
+### Open in Android Studio  
+1. Launch Android Studio.  
+2. Select **File > Open** and navigate to the cloned directory.  
+
+### Sync Dependencies  
+1. Ensure all Gradle dependencies are downloaded by syncing the project:  
+   - Click on **Sync Now** in the Gradle toolbar.  
+
+### Run the App  
+1. Connect an Android device or launch an emulator.  
+2. Click the **Run** button in Android Studio to install and launch the app.  
+
+---
+
+## Usage  
+1. Launch the app on your Android device.  
+2. Browse through the home screen for recommendations, offers, and popular items.  
+3. Use the search tab to find specific destinations or attractions.  
+4. View details about destinations, add items to your cart, and plan your trip.  
+5. Access ticket details, including QR codes, on the Ticket Page.  
+
+---
+
+## Technologies Used  
+- **Programming Language**: Java/Kotlin  
+- **User Interface**: Material Design  
+- **Database**: Firebase Realtime Database  
+
+---
+
+## Sequence Information  
+TravelApp’s user flow is designed to provide a seamless experience:  
+1. **Intro Page**: The app begins with an intro page that welcomes users and briefly explains the features.  
+2. **Home Screen**:  
+   - Users can search for destinations, view personalized recommendations, and explore trending items.  
+3. **Destination Details Page**:  
+   - Clicking on a destination reveals detailed information, including pricing and an option to add items to the cart.  
+4. **Cart Management**: Users can manage their cart and finalize their travel plans.  
+5. **Ticket Page**:  
+   - Tickets purchased or booked are displayed here with details and a QR code for verification.  
+
+---
