@@ -1,0 +1,19 @@
+# IntelliJ IDEA / Android Studio
+.idea/
+*.iml
+
+# Gradle related files and directories
+.gradle/
+build/
+
+# Gradle specific files
+.gradle/*
+!/.gradle/gradle-wrapper.jar
+!/.gradle/gradle-wrapper.properties
+
+# Ignore Gradle caches
+.gradle/file-system.probe
+.gradle/buildOutputCleanup/
+
+# Ignore log files
+*.log
