@@ -26,6 +26,7 @@ ActivityMainBinding binding;
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         initBanner();
         initCategory();
         initRecommended();
@@ -34,10 +35,11 @@ ActivityMainBinding binding;
 
     private void initPopular() {
         ArrayList<ItemDomain> list = new ArrayList<>();
-        list.add(new ItemDomain("Kennedy Space Center", 149.99, "Orlando, FL", 4.5f, R.drawable.kennedy));
-        list.add(new ItemDomain("The French Quarter", 249.99, "New Orleans, LA", 4.0f, R.drawable.frenchquarter));
-        list.add(new ItemDomain("Old Faithful", 219.99, "Yellowstone Park, Wyoming", 4.7f, R.drawable.oldfaithful));
-        list.add(new ItemDomain("Mammoth Cave Park", 339.99, "Kentucky", 4.2f, R.drawable.mammothcave));
+        list.add(new ItemDomain("Kennedy Space Center", 149.99, "Orlando, FL", 4.5f, R.drawable.kennedy,R.string.description_kennedy));
+        list.add(new ItemDomain("The French Quarter", 249.99, "New Orleans, LA", 4.0f, R.drawable.frenchquarter,R.string.description_french_quarter));
+        list.add(new ItemDomain("Old Faithful", 219.99, "Yellowstone Park, Wyoming", 4.7f, R.drawable.oldfaithful,R.string.description_old_faithful));
+        list.add(new ItemDomain("Mammoth Cave Park", 339.99, "Kentucky", 4.2f, R.drawable.mammothcave,R.string.description_mammoth_cave));
+        list.add(new ItemDomain("Kennedy Space Center", 149.99, "Orlando, FL", 4.5f, R.drawable.kennedy,R.string.description_kennedy));
         if (!list.isEmpty()) {
                 binding.recyclerViewPopular.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
                 RecyclerView.Adapter adapter = new PopularAdapter(list);
@@ -48,10 +50,10 @@ ActivityMainBinding binding;
 
     private void initRecommended() {
         ArrayList<ItemDomain> list = new ArrayList<>();
-        list.add(new ItemDomain("The Gateway Arch", 149.99, "Missouri", 4.5f, R.drawable.gatewayarch));
-        list.add(new ItemDomain("Park City", 249.99, "Utah", 4.0f, R.drawable.parkcity));
-        list.add(new ItemDomain("Jackson Hole", 219.99, "Wyoming", 4.7f, R.drawable.jackson));
-        list.add(new ItemDomain("Honolulu", 339.99, "Hawaii", 4.2f, R.drawable.honolulu));
+        list.add(new ItemDomain("The Gateway Arch", 149.99, "Missouri", 4.5f, R.drawable.gatewayarch,R.string.Gateway_Arch));
+        list.add(new ItemDomain("Park City", 249.99, "Utah", 4.0f, R.drawable.parkcity,R.string.Park_City));
+        list.add(new ItemDomain("Jackson Hole", 219.99, "Wyoming", 4.7f, R.drawable.jackson,R.string.jackson_Hole));
+        list.add(new ItemDomain("Honolulu", 339.99, "Hawaii", 4.2f, R.drawable.honolulu,R.string.Honolulu));
         if (!list.isEmpty()) {
             binding.recyclerViewRecommended.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
             RecyclerView.Adapter adapter = new RecommendedAdapter(list);
