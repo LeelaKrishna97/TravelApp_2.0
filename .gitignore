@@ -17,3 +17,18 @@ build/
 
 # Ignore log files
 *.log
+
+########
+# Ignore IntelliJ IDEA project files
+.idea/
+
+# Allow specific files in .idea that are safe to share
+!.idea/modules.xml
+!.idea/vcs.xml
+
+# Exclude specific environment-related files
+.idea/compiler.xml
+.idea/gradle.xml
+.idea/misc.xml
+local.properties
+
