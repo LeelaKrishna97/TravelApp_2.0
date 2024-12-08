@@ -7,18 +7,25 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
 
 import com.example.androidproject.Adapter.CategoryAdapter;
 import com.example.androidproject.Adapter.PopularAdapter;
 import com.example.androidproject.Adapter.RecommendedAdapter;
+import com.example.androidproject.Adapter.SliderAdapter;
 import com.example.androidproject.Domain.Category;
 import com.example.androidproject.Domain.ItemDomain;
+import com.example.androidproject.Domain.SliderItems;
 import com.example.androidproject.R;
 import com.example.androidproject.databinding.ActivityMainBinding;
+import android.os.Handler;
+import android.os.Looper;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private Handler sliderHandler = new Handler(Looper.getMainLooper());
 ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +34,11 @@ ActivityMainBinding binding;
         setContentView(binding.getRoot());
 
 
-        initBanner();
+        initLocalBanner();
         initCategory();
         initRecommended();
         initPopular();
+        startAutoSlide();
     }
 
     private void initPopular() {
@@ -63,27 +71,56 @@ ActivityMainBinding binding;
     }
 
 
-    private void initBanner() {
-//        DatabaseReference myRef = database.getReference("Banner");
-//        binding.progressBarBanner.setVisibility(View.VISIBLE);
-//        ArrayList<SliderItems> items = new ArrayList<>();
-//        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.exists()) {
-//                    for (DataSnapshot issue : snapshot.getChildren()) {
-//                        items.add(issue.getValue(SliderItems.class));
-//                    }
-//                    banners(items);
-//                    binding.progressBarBanner.setVisibility(View.GONE);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+    private void initLocalBanner() {
+        ArrayList<SliderItems> items = new ArrayList<>();
+        items.add(new SliderItems(R.drawable.slider1));
+        items.add(new SliderItems(R.drawable.slider2));
+        items.add(new SliderItems(R.drawable.slider));
+
+        SliderAdapter adapter = new SliderAdapter(items);
+        binding.viewPagerSlider.setAdapter(adapter);
+        binding.viewPagerSlider.setClipToPadding(false);
+        binding.viewPagerSlider.setClipChildren(false);
+        binding.viewPagerSlider.setOffscreenPageLimit(3);
+        binding.viewPagerSlider.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+
+        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        compositePageTransformer.addTransformer(new MarginPageTransformer(40));
+        binding.viewPagerSlider.setPageTransformer(compositePageTransformer);
+    }
+
+    private void startAutoSlide() {
+        sliderHandler.postDelayed(sliderRunnable, 4000);
+    }
+
+    private void stopAutoSlide() {
+        sliderHandler.removeCallbacks(sliderRunnable);
+    }
+
+    private Runnable sliderRunnable = new Runnable() {
+        @Override
+        public void run() {
+            int currentItem = binding.viewPagerSlider.getCurrentItem();
+            int itemCount = binding.viewPagerSlider.getAdapter().getItemCount();
+
+            // Increment the current item to move to the next one
+            binding.viewPagerSlider.setCurrentItem((currentItem + 1) % itemCount, true); // Move to next slider item
+
+            // Schedule the next update after 4 seconds
+            sliderHandler.postDelayed(this, 4000);
+        }
+    };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopAutoSlide(); // Stop sliding when activity is not visible
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startAutoSlide(); // Resume sliding when activity becomes visible
     }
 
     private void initCategory() {
