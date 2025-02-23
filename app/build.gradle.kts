@@ -43,10 +43,7 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.ui.test.android)
-    implementation ("com.google.firebase:firebase-auth:22.0.0")
-    implementation ("com.android.support:cardview-v7:26.1.0")
     implementation(libs.litert.support.api)
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -54,6 +51,8 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.14.2")  // Latest stable version
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")  // For annotation processing
     implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.27")
+    implementation ("com.google.android.material:material:1.8.0 ")
+
 
 
 }

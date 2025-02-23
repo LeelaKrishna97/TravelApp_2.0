@@ -163,7 +163,13 @@
                             android:layout_marginStart="24dp"
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="24dp"
-                            android:text="Dynamic Description Here"
+                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing
+ elit,sed do eiusmod tempor incididunt ut labore et
+dolore magna aliqua. Ut enim ad minim veniam, quis
+ nostrud exercitation ullamco laboris nisi ut aliquip
+ ex ea commodo consequat. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris
+ nisi ut aliquip ex ea commodo consequat. "
                             android:textColor="@color/darkBlue"
                             android:textSize="16sp" />
                     </LinearLayout>
